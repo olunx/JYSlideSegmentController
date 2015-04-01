@@ -116,7 +116,7 @@ NSString *const segmentBarItemID = @"JYSegmentBarItem";
         [_slideView setShowsHorizontalScrollIndicator:NO];
         [_slideView setShowsVerticalScrollIndicator:NO];
         [_slideView setPagingEnabled:YES];
-        [_slideView setBounces:NO];
+        [_slideView setBounces:YES];
         [_slideView setDelegate:self];
     }
     return _slideView;
