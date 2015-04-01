@@ -13,8 +13,8 @@ extern NSString *const segmentBarItemID;
 @class JYSlideSegmentController;
 
 /**
- *  Need to be implemented this methods for custom UI of segment button
- */
+*  Need to be implemented this methods for custom UI of segment button
+*/
 @protocol JYSlideSegmentDataSource <NSObject>
 @required
 
@@ -22,7 +22,7 @@ extern NSString *const segmentBarItemID;
    numberOfItemsInSection:(NSInteger)section;
 
 - (UICollectionViewCell *)slideSegment:(UICollectionView *)segmentBar
-            cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+                cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 - (NSInteger)numberOfSectionsInslideSegment:(UICollectionView *)segmentBar;
@@ -39,26 +39,30 @@ extern NSString *const segmentBarItemID;
 @interface JYSlideSegmentController : UIViewController
 
 /**
- *  Child viewControllers of SlideSegmentController
- */
-@property (nonatomic, copy) NSArray *viewControllers;
+*  Child viewControllers of SlideSegmentController
+*/
+@property(nonatomic, copy) NSArray *viewControllers;
 
-@property (nonatomic, strong, readonly) UICollectionView *segmentBar;
-@property (nonatomic, strong, readonly) UIScrollView *slideView;
-@property (nonatomic, strong, readonly) UIView *indicator;
+@property(nonatomic, strong, readonly) UICollectionView *segmentBar;
+@property(nonatomic, strong, readonly) UIScrollView *slideView;
+@property(nonatomic, strong, readonly) UIView *indicator;
 
-@property (nonatomic, assign) UIEdgeInsets indicatorInsets;
+@property(nonatomic, assign) UIEdgeInsets indicatorInsets;
 
-@property (nonatomic, weak, readonly) UIViewController *selectedViewController;
-@property (nonatomic, assign, readonly) NSInteger selectedIndex;
+@property(nonatomic, weak, readonly) UIViewController *selectedViewController;
+@property(nonatomic, assign, readonly) NSInteger selectedIndex;
 
+@property(nonatomic, assign) float segmentBarHeight;
+@property(nonatomic, assign) float segmentIndicatorHeight;
+@property(nonatomic, strong) UIColor *segmentTitleColor;
+@property(nonatomic, strong) UIFont *segmentTitleFont;
 
 /**
- *  By default segmentBar use viewController's title for segment's button title
- *  You should implement JYSlideSegmentDataSource & JYSlideSegmentDelegate instead of segmentBar delegate & datasource
- */
-@property (nonatomic, assign) id <JYSlideSegmentDelegate> delegate;
-@property (nonatomic, assign) id <JYSlideSegmentDataSource> dataSource;
+*  By default segmentBar use viewController's title for segment's button title
+*  You should implement JYSlideSegmentDataSource & JYSlideSegmentDelegate instead of segmentBar delegate & datasource
+*/
+@property(nonatomic, assign) id <JYSlideSegmentDelegate> delegate;
+@property(nonatomic, assign) id <JYSlideSegmentDataSource> dataSource;
 
 - (instancetype)initWithViewControllers:(NSArray *)viewControllers;
 
